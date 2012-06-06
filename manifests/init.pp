@@ -2,7 +2,7 @@ class network (
     $host_config_global = params_lookup('hostconfiguration', 'global'),
     $manage_interfaces  = params_lookup('manage_interfaces', 'global'),
     $networks           = params_lookup('networks', 'global'),
-    $use_proxy          = params_lookup('use_proxy', 'global')
+    $use_proxy          = params_lookup('use_proxy', 'global'),
     $proxies            = params_lookup('proxies', 'global')
     ) {
 
@@ -33,6 +33,7 @@ class network (
 
     class { 'network::proxy':
         manage      => $manage_proxy,
-        proxies     => 
+        proxies     => $proxies
     }
+ 
 }
