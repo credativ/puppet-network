@@ -11,7 +11,7 @@ auto <%= ifname %>
 iface <%= ifname %> inet static
     address <%= data['ip'] %>
 <% networks[ifname].each do |key,value| -%>
-    <%= key %> <%= value >
+    <%= key %> <%= value %>
 <% end %>
 <% end %>
 

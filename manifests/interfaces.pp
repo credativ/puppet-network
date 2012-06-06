@@ -1,4 +1,5 @@
 class network::interfaces (
+    $manage,
     $interfaces,
     $networks,
     ) {
