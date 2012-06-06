@@ -3,8 +3,8 @@ class network::interfaces (
     $networks,
     ) {
 
-    file { '/tmp/etc/network/interfaces':
+    file { '/etc/network/interfaces':
         ensure => present,
-        template => ('interfaces.erb')
+        template => ('network/interfaces.erb')
     }
 }
