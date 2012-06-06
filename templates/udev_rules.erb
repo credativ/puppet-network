@@ -1,0 +1,5 @@
+# MANAGED BY PUPPET
+<% network_interfaces.each do |ifname, data| -%>
+<% $mac = data['mac'] -%>
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="<%= data['mac'] %>" NAME="<%= ifname %>"
+<% end %>

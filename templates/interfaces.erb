@@ -1,0 +1,17 @@
+# MANAGED BY PUPPET - DO NOT EDIT
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+<% network_interfaces.each do |ifname, data| -%>
+auto <%= ifname %>
+iface <%= ifname %> inet static
+    address <%= data['ip'] %>
+<% networks[ifname].each do |key,value| -%>
+    <%= param %> <%= value >
+<% end %>
+<% end %>
+
