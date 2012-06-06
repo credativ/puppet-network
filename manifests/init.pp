@@ -6,7 +6,9 @@ class network (
     $proxies            = params_lookup('proxies', 'global')
     ) {
 
-    if $manage_interfaces {
+    $manage_interfaces_real = any2bool($manage_interfaces)
+
+    if $manage_interfaces_real {
         # Get configuration for this host
         if ! $host_config_global[$::hostname] {
             fail("No host configuration defined for $::hostname.")
