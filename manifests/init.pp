@@ -32,7 +32,7 @@ class network (
     }
 
     class { 'network::proxy':
-        manage      => $manage_proxy,
+        manage      => $use_proxy,
         proxies     => $proxies
     }
  

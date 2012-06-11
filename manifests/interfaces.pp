@@ -6,6 +6,6 @@ class network::interfaces (
 
     file { '/etc/network/interfaces':
         ensure => present,
-        template => ('network/interfaces.erb')
+        content => template('network/interfaces.erb')
     }
 }

@@ -1,9 +1,9 @@
 class network::proxy::apt (
-    $ensure,
+    $manage,
     $proxies
     ){
 
-    if $ensure {
+    if $manage {
         if $proxies["http_proxy"] {
             $http_proxy = $proxies["http_proxy"]
         }
@@ -16,7 +16,7 @@ class network::proxy::apt (
 
         apt::conf { 'proxy':
             priority => '30',
-            content => template('proxy-hiera/apt.conf.erb')
+            content => template('network/apt.conf.erb')
         }
     }
 }

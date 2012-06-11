@@ -1,5 +1,5 @@
 class network::proxy (
-    $manage,
+    $manage = false,
     $proxies,
     ) {
 
