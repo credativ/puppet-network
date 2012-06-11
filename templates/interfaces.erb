@@ -7,11 +7,17 @@ auto lo
 iface lo inet loopback
 
 <% network_interfaces.each do |ifname, data| -%>
+<% if data['ip'] %>    
 auto <%= ifname %>
 iface <%= ifname %> inet static
     address <%= data['ip'] %>
 <% networks[ifname].each do |key,value| -%>
     <%= key %> <%= value %>
+<% end %>
+<% else %>
+# <%= ifname> is not configured
+#auto <%= ifname %>
+#iface <%= ifname %> inet manual
 <% end %>
 <% end %>
 
