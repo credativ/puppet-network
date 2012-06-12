@@ -18,8 +18,16 @@ iface <%= ifname %> inet static
     <%= key %> <%= value %>
 <% end -%>
 <% end -%>
+
+<% if data['options'] -%>
+<% data['options'].each do |option| -%>
+<% option.each do |optvalue| -%>
+    <%= option %> <%= optvalue %>
+<% end -%>
+<% end -%>
+<% end -%>
 <% else %>
-# <%= ifname %>> is not configured
+# <%= ifname %> is not configured
 #auto <%= ifname %>
 #iface <%= ifname %> inet manual
 <% end %>
