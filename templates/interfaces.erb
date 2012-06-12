@@ -18,11 +18,11 @@ iface <%= ifname %> inet static
     <%= key %> <%= value %>
 <% end -%>
 <% end -%>
-
 <% if data['options'] -%>
-<% data['options'].each do |option| -%>
-<% option.each do |optvalue| -%>
-    <%= option %> <%= optvalue %>
+<% options = data['options'] -%>
+<% options.each do |optname,values| -%>
+<% values.each do |val| -%>
+    <%= optname %> <%= val %>
 <% end -%>
 <% end -%>
 <% end -%>
