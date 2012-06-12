@@ -12,10 +12,14 @@ auto <%= ifname %>
 iface <%= ifname %> inet static
     address <%= data['ip'] %>
 <% networks[ifname].each do |key,value| -%>
+<% if data[key] -%>
+    <%= key %> <%= data[key] %>
+<% else -%>
     <%= key %> <%= value %>
-<% end %>
+<% end -%>
+<% end -%>
 <% else %>
-# <%= ifname> is not configured
+# <%= ifname %>> is not configured
 #auto <%= ifname %>
 #iface <%= ifname %> inet manual
 <% end %>
