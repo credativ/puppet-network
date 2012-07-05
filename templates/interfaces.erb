@@ -13,7 +13,7 @@ iface <%= ifname %> inet static
     address <%= data['ip'] %>
 <% if data['gateway'] -%>
     gateway <%= data['gateway'] %>
-<% end %>
+<% end -%>
 <% networks[ifname].each do |key,value| -%>
 <% if data[key] and key != 'gateway' -%>
     <%= key %> <%= data[key] %>
