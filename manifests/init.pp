@@ -36,4 +36,7 @@ class network (
         proxies     => $proxies
     }
  
+    package { 'resolvconf':
+        ensure => present
+    }
 }
