@@ -5,7 +5,8 @@ class network (
     $use_proxy          = params_lookup('use_proxy', 'global'),
     $proxies            = params_lookup('proxies', 'global'),
     $ip_routes          = params_lookup('routes'),
-    ) {
+    $use_resolvconf     = params_lookup('use_resolvconf', 'global'),
+    ) inherits network::params {
 
     $manage_interfaces_real = any2bool($manage_interfaces)
 
@@ -40,8 +41,14 @@ class network (
         manage      => $use_proxy,
         proxies     => $proxies
     }
+
+    $ensure_resolvconf = $use_resolvconf ? {
+      true    => present,
+      false   => absent,
+      default => absent,
+    }
  
     package { 'resolvconf':
-        ensure => present
+        ensure => $ensure_resolvconf,
     }
 }
