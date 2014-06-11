@@ -3,7 +3,8 @@ class network (
     $manage_interfaces  = params_lookup('manage_interfaces', 'global'),
     $networks           = params_lookup('networks', 'global'),
     $use_proxy          = params_lookup('use_proxy', 'global'),
-    $proxies            = params_lookup('proxies', 'global')
+    $proxies            = params_lookup('proxies', 'global'),
+    $ip_routes          = params_lookup('routes'),
     ) {
 
     $manage_interfaces_real = any2bool($manage_interfaces)
@@ -29,6 +30,10 @@ class network (
             interfaces  => $network_interfaces,
             networks    => $networks
         }
+    }
+
+    class { 'network::routes':
+        routes => $ip_routes,
     }
 
     class { 'network::proxy':
