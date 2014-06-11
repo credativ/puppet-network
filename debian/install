@@ -1,0 +1,3 @@
+manifests   etc/puppet/modules/network
+templates   etc/puppet/modules/network
+files       etc/puppet/modules/network
