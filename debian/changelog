@@ -1,3 +1,9 @@
+puppet-module-network (1.0.5) unstable; urgency=medium
+
+  * Change module path
+
+ -- Patrick Schoenfeld <patrick.schoenfeld@credativ.de>  Tue, 24 Jun 2014 10:06:29 +0200
+
 puppet-module-network (1.0.4) unstable; urgency=low
 
   * Let choose to use resolvconf.
