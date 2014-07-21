@@ -5,4 +5,5 @@ class network::params {
     $proxies           = {}
     $hostconfiguration = {}
     $use_resolvconf    = true
+    $routes            = []
 }

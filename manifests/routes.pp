@@ -1,8 +1,9 @@
+# class to manage static routes via if-up hook
 class network::routes (
     $routes,
     ) {
 
-    if $routes == undef {
+    if empty($routes) {
      $ensure = 'absent'
     } else {
      $ensure = 'file'
@@ -13,7 +14,7 @@ class network::routes (
      owner   => 'root',
      group   => 'root',
      mode    => '0644',
-     content => $routes,
+     content => template('network/ip-routes.erb'),
     }
 
     file { "/etc/network/if-up.d/ip-routes":
