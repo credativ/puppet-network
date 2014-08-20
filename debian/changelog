@@ -1,3 +1,9 @@
+puppet-module-network (1.0.7) unstable; urgency=medium
+
+  * Add some more specific hints where configs come from
+
+ -- Patrick Schoenfeld <patrick.schoenfeld@credativ.de>  Wed, 20 Aug 2014 10:12:14 +0200
+
 puppet-module-network (1.0.6) unstable; urgency=medium
 
   * Use template for ip-routes and parameterize it with routes array

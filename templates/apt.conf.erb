@@ -1,4 +1,4 @@
-# MANAGED BY PUPPET
+# MANAGED BY PUPPET (network/templates, via params/hiera)
 <% if has_variable?("http_proxy") then -%>
 Acquire::http::Proxy "<%= http_proxy %>";
 <% if has_variable?("no_proxy") then -%>
