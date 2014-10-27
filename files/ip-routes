@@ -40,7 +40,7 @@ del_static_routes() {
 	# since they will be removed nevertheless. In any case, this 
 	# piece of code only runs if you install this file in 
 	# /etc/network/if-pre-down.d/ (which you don't need to)
-	cat /etc/network/ip-routes | grep "$IFACE" | egrep -v "^#" |
+	cat /etc/network/ip-routes | grep -- "$IFACE" | egrep -v "^#" |
 	while read line ; do
 		[ "$VERBOSITY" -eq "1" ] && echo "DEBUG: Deleting route: $line"
 		/sbin/ip route del $line
@@ -48,7 +48,7 @@ del_static_routes() {
 }
 
 add_static_routes() {
-	cat /etc/network/ip-routes | grep "$IFACE" | egrep -v "^#" |
+	cat /etc/network/ip-routes | grep -- "$IFACE" | egrep -v "^#" |
 	while read line ; do
 		[ "$VERBOSITY" -eq "1" ] && echo "DEBUG: Adding route: $line"
 		/sbin/ip route add $line
