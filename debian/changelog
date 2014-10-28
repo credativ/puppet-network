@@ -1,3 +1,9 @@
+puppet-module-network (1.0.8) unstable; urgency=medium
+
+  * Fix error: grep unrecognized option '--all'
+
+ -- Arnd Hannemann <arnd.hannemann@credativ.de>  Mon, 27 Oct 2014 16:59:58 +0100
+
 puppet-module-network (1.0.7) unstable; urgency=medium
 
   * Add some more specific hints where configs come from
