@@ -6,4 +6,5 @@ class network::params {
     $hostconfiguration = {}
     $use_resolvconf    = true
     $routes            = []
+    $ensure_ifenslave  = ignore
 }

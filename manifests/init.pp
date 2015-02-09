@@ -6,6 +6,7 @@ class network (
     $proxies            = params_lookup('proxies', 'global'),
     $ip_routes          = params_lookup('routes'),
     $use_resolvconf     = params_lookup('use_resolvconf', 'global'),
+    $ensure_ifenslave   = params_lookup('ensure_ifenslave'),
     ) inherits network::params {
 
     $manage_interfaces_real = any2bool($manage_interfaces)
@@ -47,7 +48,13 @@ class network (
       false   => absent,
       default => absent,
     }
- 
+
+    if $ensure_ifenslave != 'ignore' {
+        package { 'ifenslave-2.6':
+            ensure => $ensure_ifenslave,
+        }
+    }
+
     package { 'resolvconf':
         ensure => $ensure_resolvconf,
     }

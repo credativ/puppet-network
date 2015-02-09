@@ -1,3 +1,9 @@
+puppet-module-network (1.0.9) unstable; urgency=low
+
+  * Add ensure_ifenslave option
+
+ -- Damian Lukowski <damian.lukowski@credativ.de>  Mon, 09 Feb 2015 12:11:29 +0100
+
 puppet-module-network (1.0.8) unstable; urgency=medium
 
   * Fix error: grep unrecognized option '--all'
