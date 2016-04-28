@@ -14,7 +14,7 @@ class network (
     if $manage_interfaces_real {
         # Get configuration for this host
         if ! $host_config_global[$::hostname] {
-            fail("No host configuration defined for $::hostname.")
+            fail("No host configuration defined for ${::hostname}.")
         } else {
             $host_config = $host_config_global[$::hostname]
         }
@@ -22,15 +22,15 @@ class network (
         # Generate udev rules
         $network_interfaces = $host_config['network_interfaces']
         file { '/etc/udev/rules.d/70-persistent-net.rules':
-            ensure   => present,
-            content  => template('network/udev_rules.erb'),
+            ensure  => present,
+            content => template('network/udev_rules.erb'),
         }
 
         # Generate /etc/network/interfaces
         class { 'network::interfaces':
-            manage      => $manage_interfaces,
-            interfaces  => $network_interfaces,
-            networks    => $networks
+            manage     => $manage_interfaces,
+            interfaces => $network_interfaces,
+            networks   => $networks
         }
     }
 
@@ -39,8 +39,8 @@ class network (
     }
 
     class { 'network::proxy':
-        manage      => $use_proxy,
-        proxies     => $proxies
+        manage  => $use_proxy,
+        proxies => $proxies
     }
 
     $ensure_resolvconf = $use_resolvconf ? {

@@ -9,7 +9,7 @@ class network::routes (
      $ensure = 'file'
     }
 
-    file { "/etc/network/ip-routes":
+    file { '/etc/network/ip-routes':
      ensure  => $ensure,
      owner   => 'root',
      group   => 'root',
@@ -17,11 +17,11 @@ class network::routes (
      content => template('network/ip-routes.erb'),
     }
 
-    file { "/etc/network/if-up.d/ip-routes":
-     ensure  => $ensure,
-     owner   => 'root',
-     group   => 'root',
-     mode    => '0700',
-     source  => "puppet:///modules/${module_name}/ip-routes",
+    file { '/etc/network/if-up.d/ip-routes':
+     ensure => $ensure,
+     owner  => 'root',
+     group  => 'root',
+     mode   => '0700',
+     source => "puppet:///modules/${module_name}/ip-routes",
    }
 }
