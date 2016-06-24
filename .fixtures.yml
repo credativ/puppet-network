@@ -1,0 +1,13 @@
+fixtures:
+    symlinks:
+        network: "../../../"
+    forge_modules:
+        stdlib:
+            repo: 'puppetlabs/stdlib'
+            ref: '4.2.1'
+        apt:
+            repo: 'puppetlabs/apt'
+            ref: '1.8.0'
+    repositories:
+        example42lib:
+            repo: 'https://github.com/credativ/puppet-example42lib'

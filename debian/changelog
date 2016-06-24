@@ -1,3 +1,10 @@
+puppet-module-network (1.0.10) UNRELEASED; urgency=medium
+
+  * Add/Update common module files
+  * Add some basic happypath tests
+
+ -- Patrick Schoenfeld <patrick.schoenfeld@credativ.de>  Fri, 24 Jun 2016 15:18:52 +0000
+
 puppet-module-network (1.0.9) unstable; urgency=low
 
   * Add ensure_ifenslave option
