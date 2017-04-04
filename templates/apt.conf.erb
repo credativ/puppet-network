@@ -1,16 +1,16 @@
 # MANAGED BY PUPPET (network/templates, via params/hiera)
-<% if has_variable?("http_proxy") then -%>
-Acquire::http::Proxy "<%= http_proxy %>";
-<% if has_variable?("no_proxy") then -%>
-<% no_proxy.each do |val| -%>
+<% unless @http_proxy.nil? then -%>
+Acquire::http::Proxy "<%= @http_proxy %>";
+<% unless @no_proxy.nil? then -%>
+<% @no_proxy.each do |val| -%>
 Acquire::http::Proxy::<%= val %> "DIRECT";
 <% end -%>
 <% end -%>
 <% end -%>
-<% if has_variable?("https_proxy") then -%>
-Acquire::https::Proxy "<%= https_proxy %>";
-<% if has_variable?("no_proxy") then -%>
-<% no_proxy.each do |val| -%>
+<% unless @https_proxy.nil? then -%>
+Acquire::https::Proxy "<%= @https_proxy %>";
+<% unless @no_proxy.nil? then -%>
+<% @no_proxy.each do |val| -%>
 Acquire::https::Proxy::<%= val %> "DIRECT";
 <% end -%>
 <% end -%>
