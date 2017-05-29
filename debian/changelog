@@ -1,4 +1,4 @@
-puppet-module-network (1.0.10) UNRELEASED; urgency=medium
+puppet-module-network (1.0.10) unstable; urgency=medium
 
   * Add/Update common module files
   * Add some basic happypath tests
