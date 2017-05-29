@@ -1,3 +1,10 @@
+puppet-module-network (1.0.11) unstable; urgency=medium
+
+  * Add sigils to external variables in erb templates
+  * Version 1.0.10 has been actually released, fix info
+
+ -- Damian Lukowski <damian.lukowski@credativ.de>  Mon, 29 May 2017 16:59:24 +0200
+
 puppet-module-network (1.0.10) unstable; urgency=medium
 
   * Add/Update common module files
