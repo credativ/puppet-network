@@ -6,15 +6,15 @@
 auto lo
 iface lo inet loopback
 
-<% network_interfaces.each do |ifname, data| -%>
-<% if data['ip'] %>    
+<% @network_interfaces.each do |ifname, data| -%>
+<% if data['ip'] %>
 auto <%= ifname %>
 iface <%= ifname %> inet static
     address <%= data['ip'] %>
 <% if data['gateway'] -%>
     gateway <%= data['gateway'] %>
 <% end -%>
-<% networks[ifname].each do |key,value| -%>
+<% @networks[ifname].each do |key,value| -%>
 <% if data[key] and key != 'gateway' -%>
     <%= key %> <%= data[key] %>
 <% else -%>

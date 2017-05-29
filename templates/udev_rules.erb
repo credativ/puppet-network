@@ -1,5 +1,4 @@
 # MANAGED BY PUPPET (network/templates, via params/hiera)
-<% network_interfaces.each do |ifname, data| -%>
-<% $mac = data['mac'] -%>
+<% @network_interfaces.each do |ifname, data| -%>
 SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="<%= data['mac'] %>" NAME="<%= ifname %>"
 <% end %>
